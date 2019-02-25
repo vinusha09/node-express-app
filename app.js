@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 
-const hostname = '127.0.0.1'   // set constants
+const hostname = '0.0.0.0'    // allows access from remote computers
 const port = 3002
 
 app.get('/', function (req, res) {
@@ -23,6 +23,8 @@ app.get('/greeting/:id',  (req, res) =>{
 app.get('/yo/:buddy',  (req, res) =>{
   res.send('<h1>Yo, ' + req.params.buddy + '!</h1>')
 })
+app.get('/msg'),(req, res) =>{
+  res.send('Have a great day')
 
 // handle non-existant routes
 app.use((req, res, next) => {
